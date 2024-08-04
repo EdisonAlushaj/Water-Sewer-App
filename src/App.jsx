@@ -1,17 +1,18 @@
 import React, { Component, Suspense } from 'react';
-import { HashRouter, Outlet } from 'react-router-dom';
+import { BrowserRouter, Outlet } from 'react-router-dom';
 import './App.css'
 import Header from './Header/header.jsx';
-import Home from './Home/home.jsx'
 import Footer from './Footer/footer.jsx'
 import AppRoutes from './AppRoutes.jsx';
 
 export const MainLayout = () => {
   return (
     <>
-      <Header></Header>
-      <Home></Home>
-      <Footer></Footer>
+      <Header />
+      <Suspense fallback={<div>Loading...</div>}>
+        <Outlet />
+      </Suspense>
+      <Footer />
     </>
   )
 }
@@ -20,11 +21,11 @@ class App extends Component {
   render() {
     return (
       <div className="app-wrapper">
-        <HashRouter>
+        <BrowserRouter>
           <Suspense fallback={<div>Loading...</div>}>
             <AppRoutes />
           </Suspense>
-        </HashRouter>
+        </BrowserRouter>
       </div>
     );
   }
