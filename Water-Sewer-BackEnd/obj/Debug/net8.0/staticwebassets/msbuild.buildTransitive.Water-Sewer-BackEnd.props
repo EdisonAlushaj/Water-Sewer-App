@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\buildMultiTargeting\Water-Sewer-BackEnd.props" />
+</Project>

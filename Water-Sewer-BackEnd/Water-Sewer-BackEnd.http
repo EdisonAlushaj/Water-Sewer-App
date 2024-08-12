@@ -1,0 +1,6 @@
+@Water_Sewer_BackEnd_HostAddress = http://localhost:5003
+
+GET {{Water_Sewer_BackEnd_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
