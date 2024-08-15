@@ -22,10 +22,12 @@ namespace Water_Sewer_BackEnd.Controllers
         }
 
         // GET: api/Projects
+
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Project>>> GetProjects()
+        public async Task<IActionResult> GetProjects()
         {
-            return await _context.Projects.ToListAsync();
+            var players = await _context.Projects.ToListAsync();
+            return Ok(players);
         }
 
         // GET: api/Projects/5
