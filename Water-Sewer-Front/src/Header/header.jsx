@@ -17,8 +17,9 @@ function Header() {
                             <li className="nav-item" ><NavLink to="/app/home" style={{ color: 'white', textDecoration: 'none' }}>Home</NavLink></li>
                             <li className="nav-item"><NavLink to="/app/about" style={{ color: 'white', textDecoration: 'none' }}>About Us</NavLink></li>
                             <li className="nav-item"><NavLink to="#" style={{ color: 'white', textDecoration: 'none' }}>Services</NavLink></li>
-                            <li className="nav-item"><NavLink to="#" style={{ color: 'white', textDecoration: 'none' }}>Projects</NavLink></li>
+                            <li className="nav-item"><NavLink to="/app/project" style={{ color: 'white', textDecoration: 'none' }}>Projects</NavLink></li>
                             <li className="nav-item"><NavLink to="/app/contact" style={{ color: 'white', textDecoration: 'none' }}>Contact Us</NavLink></li>
+                            <li className="nav-item"><NavLink to="/app/dashboard" style={{ color: 'white', textDecoration: 'none' }}>Dashboard</NavLink></li>
                         </ul>
                     </div>
                 </div>
