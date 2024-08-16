@@ -65,10 +65,11 @@ body {
     margin: auto 0;
 }
 
-.sidebar-logo a {
+.sidebar-logo p {
     color: #FFF;
     font-size: 1.15rem;
     font-weight: 600;
+    margin: 0%;
 }
 
 #sidebar:not(.expand) .sidebar-logo,

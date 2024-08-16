@@ -24,7 +24,7 @@ const Dashboard = () => {
                             <i className="lni lni-grid-alt"></i>
                         </button>
                         <div className="sidebar-logo">
-                            <a href="javascript:void(0)">Dashboard</a>
+                            <p>Dashboard</p>
                         </div>
                     </div>
                     <ul className="sidebar-nav">
@@ -40,7 +40,7 @@ const Dashboard = () => {
                         </li>
                     </ul>
                     <div className="sidebar-footer">
-                        <NavLink to="/home" className="sidebar-link">
+                        <NavLink to="/app/home" className="sidebar-link">
                             <i className="lni lni-exit"></i>
                             <span className="fw-normal">Logout</span>
                         </NavLink>

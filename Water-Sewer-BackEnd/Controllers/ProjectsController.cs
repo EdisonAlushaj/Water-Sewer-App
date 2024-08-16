@@ -44,37 +44,6 @@ namespace Water_Sewer_BackEnd.Controllers
             return project;
         }
 
-        // PUT: api/Projects/5
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
-        [HttpPut("{id}")]
-        public async Task<IActionResult> PutProject(int id, Project project)
-        {
-            if (id != project.Id)
-            {
-                return BadRequest();
-            }
-
-            _context.Entry(project).State = EntityState.Modified;
-
-            try
-            {
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!ProjectExists(id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
-            }
-
-            return NoContent();
-        }
-
         // POST: api/Projects
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
@@ -86,20 +55,29 @@ namespace Water_Sewer_BackEnd.Controllers
             return CreatedAtAction("GetProject", new { id = project.Id }, project);
         }
 
-        // DELETE: api/Projects/5
-        [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteProject(int id)
+        //Update Project
+        [HttpPatch]
+        [Route("UpdateProject/{id}")]
+        public async Task<Project> UpdateProject(Project objProject)
         {
-            var project = await _context.Projects.FindAsync(id);
-            if (project == null)
-            {
-                return NotFound();
-            }
+            _context.Entry(objProject).State = EntityState.Modified;
+            await _context.SaveChangesAsync();
+            return objProject;
+        }
 
-            _context.Projects.Remove(project);
+        //Delete Project
+        [HttpDelete("{id}")]
+        public async Task<ActionResult<List<Project>>> DeleteProject(int id)
+        {
+            var dbProject = await _context.Projects.FindAsync(id);
+            if (dbProject == null)
+                return NotFound("Food not found");
+
+            _context.Projects.Remove(dbProject);
+
             await _context.SaveChangesAsync();
 
-            return NoContent();
+            return Ok(await _context.Projects.ToListAsync()); ;
         }
 
         private bool ProjectExists(int id)
