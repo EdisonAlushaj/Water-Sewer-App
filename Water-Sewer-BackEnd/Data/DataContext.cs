@@ -8,5 +8,6 @@ namespace Water_Sewer_BackEnd.Data
         public DataContext(DbContextOptions<DataContext> options) : base(options) { }
 
         public DbSet<Project> Projects { get; set; }
+        public DbSet<ContactRequest> ContactRequests { get; set; }
     }
 }

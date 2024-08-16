@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Form, Button, Container, Row, Col, Badge } from 'react-bootstrap';
 import coverImg from '../assets/cover.png';
+import axios from 'axios';
 
 function Contact() {
     const [formData, setFormData] = useState({
@@ -29,7 +30,7 @@ function Contact() {
             e.stopPropagation();
         } else {
             try {
-                const response = await axios.post('https://localhost:7189/api/ContactUs', formData);
+                const response = await axios.post('https://localhost:7255/api/ContactUs', formData);
                 console.log('Form submitted:', response.data);
                 setSubmitSuccess(true);
             } catch (error) {
@@ -38,11 +39,20 @@ function Contact() {
         }
 
         setValidated(true);
+        clear();
     };
 
     const handleItemClick = (index) => {
         setExpandedItem(expandedItem === index ? null : index);
     };
+
+    const clear = () => {
+        setFormData({
+            name: '',
+            email: '',
+            message: ''
+        });
+    }
 
     return (
         <>
